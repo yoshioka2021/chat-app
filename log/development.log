@@ -1475,3 +1475,141 @@ Processing by RoomsController#new as HTML
 Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 1.0ms | Allocations: 9980)
 
 
+Started POST "/rooms" for ::1 at 2021-03-17 15:37:16 +0900
+  [1m[35m (6.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by RoomsController#create as HTML
+  Parameters: {"authenticity_token"=>"Yj7tkZj7Y8gX9NU1G3oFQ7BNdoj+9PBUMFMNxRg83Uw0bkUqqi0joMPfIC+Ix5vNMPdWC17AuBE0pKzypz+d8A==", "room"=>{"name"=>"新規チャット", "user_ids"=>["3"]}, "commit"=>"Create Room"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+No template found for RoomsController#create, rendering head :no_content
+Completed 204 No Content in 185232ms (ActiveRecord: 12.1ms | Allocations: 1485542)
+
+
+Started GET "/rooms/new" for ::1 at 2021-03-17 15:40:51 +0900
+Processing by RoomsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/new.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` != 2[0m
+  ↳ app/views/rooms/new.html.erb:21
+  Rendered rooms/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 4418)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 648ms (Views: 610.2ms | ActiveRecord: 25.7ms | Allocations: 1458351)
+
+
+Started GET "/rooms/new" for ::1 at 2021-03-17 15:40:55 +0900
+Processing by RoomsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/new.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` != 2[0m
+  ↳ app/views/rooms/new.html.erb:21
+  Rendered rooms/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1373)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 15.1ms | ActiveRecord: 0.7ms | Allocations: 9980)
+
+
+Started POST "/rooms" for ::1 at 2021-03-17 15:41:24 +0900
+Processing by RoomsController#create as HTML
+  Parameters: {"authenticity_token"=>"h469WIE+YrKTnWUDMECZ52zGyk2FJ845Z5hJyiM74ybR3hXjs+gi2ke2kBmj/Qdp7HzqziUThnxjb+j9nDijmg==", "room"=>{"name"=>"新規チャット", "user_ids"=>["3", "2"]}, "commit"=>"Create Room"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+No template found for RoomsController#create, rendering head :no_content
+Completed 204 No Content in 14820ms (ActiveRecord: 18.9ms | Allocations: 240608)
+
+
+Started GET "/rooms/new" for ::1 at 2021-03-17 15:47:14 +0900
+  [1m[35m (5.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by RoomsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/new.html.erb within layouts/application
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` != 2[0m
+  ↳ app/views/rooms/new.html.erb:21
+  Rendered rooms/new.html.erb within layouts/application (Duration: 16.4ms | Allocations: 4431)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 683ms (Views: 644.0ms | ActiveRecord: 13.5ms | Allocations: 1459430)
+
+
+Started POST "/rooms" for ::1 at 2021-03-17 15:47:20 +0900
+Processing by RoomsController#create as HTML
+  Parameters: {"authenticity_token"=>"pmtIyD9pNnsPkfWxqD1WsSC7AG4D0ZWPySHr7783O9HwO+BzDb92E9u6AKs7gMg/oAEg7aPl3crN1krYADR7bQ==", "room"=>{"name"=>"新規チャット", "user_ids"=>["3", "2"]}, "commit"=>"Create Room"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms | Allocations: 4838)
+
+
+  
+NoMethodError (undefined method `save' for #<Class:0x00007ffdb709cab0>):
+  
+app/controllers/rooms_controller.rb:7:in `create'
+Started POST "/rooms" for ::1 at 2021-03-17 15:48:15 +0900
+Processing by RoomsController#create as HTML
+  Parameters: {"authenticity_token"=>"pmtIyD9pNnsPkfWxqD1WsSC7AG4D0ZWPySHr7783O9HwO+BzDb92E9u6AKs7gMg/oAEg7aPl3crN1krYADR7bQ==", "room"=>{"name"=>"新規チャット", "user_ids"=>["3", "2"]}, "commit"=>"Create Room"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 139ms (ActiveRecord: 8.6ms | Allocations: 118584)
+
+
+  
+NameError (undefined local variable or method `room_params' for #<RoomsController:0x00007ffdf0fe9de0>
+Did you mean?  rooms_path):
+  
+app/controllers/rooms_controller.rb:7:in `create'
+Started POST "/rooms" for ::1 at 2021-03-17 15:50:24 +0900
+Processing by RoomsController#create as HTML
+  Parameters: {"authenticity_token"=>"pmtIyD9pNnsPkfWxqD1WsSC7AG4D0ZWPySHr7783O9HwO+BzDb92E9u6AKs7gMg/oAEg7aPl3crN1krYADR7bQ==", "room"=>{"name"=>"新規チャット", "user_ids"=>["3", "2"]}, "commit"=>"Create Room"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (3, 2)[0m
+  ↳ app/controllers/rooms_controller.rb:7:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:8:in `create'
+  [1m[36mRoom Create (8.3ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `created_at`, `updated_at`) VALUES ('新規チャット', '2021-03-17 06:50:24.825919', '2021-03-17 06:50:24.825919')[0m
+  ↳ app/controllers/rooms_controller.rb:8:in `create'
+  [1m[36mRoomUser Create (6.8ms)[0m  [1m[32mINSERT INTO `room_users` (`room_id`, `user_id`, `created_at`, `updated_at`) VALUES (2, 3, '2021-03-17 06:50:24.836016', '2021-03-17 06:50:24.836016')[0m
+  ↳ app/controllers/rooms_controller.rb:8:in `create'
+  [1m[36mRoomUser Create (0.2ms)[0m  [1m[32mINSERT INTO `room_users` (`room_id`, `user_id`, `created_at`, `updated_at`) VALUES (2, 2, '2021-03-17 06:50:24.843642', '2021-03-17 06:50:24.843642')[0m
+  ↳ app/controllers/rooms_controller.rb:8:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:8:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 60ms (ActiveRecord: 35.7ms | Allocations: 28885)
+
+
+Started GET "/" for ::1 at 2021-03-17 15:50:24 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering messages/index.html.erb within layouts/application
+  Rendered messages/_side_bar.html.erb (Duration: 0.4ms | Allocations: 196)
+  Rendered messages/_main_chat.html.erb (Duration: 0.3ms | Allocations: 136)
+  Rendered messages/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 881)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 0.4ms | Allocations: 10083)
+
+
+Started POST "/rooms" for ::1 at 2021-03-17 15:50:32 +0900
+Processing by RoomsController#create as HTML
+  Parameters: {"authenticity_token"=>"pmtIyD9pNnsPkfWxqD1WsSC7AG4D0ZWPySHr7783O9HwO+BzDb92E9u6AKs7gMg/oAEg7aPl3crN1krYADR7bQ==", "room"=>{"name"=>"新規チャット", "user_ids"=>["3", "2"]}, "commit"=>"Create Room"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (3, 2)[0m
+  ↳ app/controllers/rooms_controller.rb:7:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:8:in `create'
+  [1m[36mRoom Create (0.3ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `created_at`, `updated_at`) VALUES ('新規チャット', '2021-03-17 06:50:32.321517', '2021-03-17 06:50:32.321517')[0m
+  ↳ app/controllers/rooms_controller.rb:8:in `create'
+  [1m[36mRoomUser Create (0.1ms)[0m  [1m[32mINSERT INTO `room_users` (`room_id`, `user_id`, `created_at`, `updated_at`) VALUES (3, 3, '2021-03-17 06:50:32.323229', '2021-03-17 06:50:32.323229')[0m
+  ↳ app/controllers/rooms_controller.rb:8:in `create'
+  [1m[36mRoomUser Create (0.1ms)[0m  [1m[32mINSERT INTO `room_users` (`room_id`, `user_id`, `created_at`, `updated_at`) VALUES (3, 2, '2021-03-17 06:50:32.324090', '2021-03-17 06:50:32.324090')[0m
+  ↳ app/controllers/rooms_controller.rb:8:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:8:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 21ms (ActiveRecord: 1.5ms | Allocations: 9072)
+
+
+Started GET "/" for ::1 at 2021-03-17 15:50:32 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering messages/index.html.erb within layouts/application
+  Rendered messages/_side_bar.html.erb (Duration: 0.1ms | Allocations: 62)
+  Rendered messages/_main_chat.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered messages/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 203)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.2ms | ActiveRecord: 0.5ms | Allocations: 8780)
+
+
