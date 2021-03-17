@@ -984,3 +984,271 @@ from devise to your `app/views` folder. Alternatively, you can run
 Completed 200 OK in 292ms (Views: 6.0ms | ActiveRecord: 5.7ms | Allocations: 16809)
 
 
+Started GET "/users/sign_up" for ::1 at 2021-03-17 11:50:31 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
+removed in the next major version.
+
+Devise now uses a partial under "devise/shared/error_messages" to display
+error messages by default, and make them easier to customize. Update your
+views changing calls from:
+
+    <%= devise_error_messages! %>
+
+to:
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+To start customizing how errors are displayed, you can copy the partial
+from devise to your `app/views` folder. Alternatively, you can run
+`rails g devise:views` which will copy all of them again to your app.
+ (called from block in _app_views_devise_registrations_new_html_erb__3879710106335621922_70199074375940 at /Users/yoshiokayuuka/projects/chat-app/app/views/devise/registrations/new.html.erb:9)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1176)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 7708)
+
+
+Started POST "/users" for ::1 at 2021-03-17 11:50:53 +0900
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"PzLq7rUF+4CAHhaPx7Y99M8mZkQNgdXSwp3S/25pLOsaQN+tTRccV2Ql6zfdk+1U+2uZPHiJa6ssIbR7v594Kw==", "user"=>{"name"=>"b", "email"=>"b@b", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Account"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'b@b' LIMIT 1[0m
+  [1m[36mUser Create (8.3ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('b', 'b@b', '$2a$12$x1Um5vXAW257tMEOxSad7uZn.EELRLElJCOhDqNZe/oy0V6Ci8jG6', '2021-03-17 02:50:54.119385', '2021-03-17 02:50:54.119385')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 282ms (ActiveRecord: 9.2ms | Allocations: 7665)
+
+
+Started GET "/" for ::1 at 2021-03-17 11:50:54 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering messages/index.html.erb within layouts/application
+  Rendered messages/_side_bar.html.erb (Duration: 0.5ms | Allocations: 185)
+  Rendered messages/_main_chat.html.erb (Duration: 0.6ms | Allocations: 133)
+  Rendered messages/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 858)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 8.7ms | ActiveRecord: 6.0ms | Allocations: 9275)
+
+
+Started GET "/users/2/edit" for ::1 at 2021-03-17 11:51:00 +0900
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 1.0ms | Allocations: 732)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.0ms | ActiveRecord: 0.6ms | Allocations: 8486)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2021-03-17 11:51:03 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"jRjTT1TjxkGLp6HxxosBcoGFdfgUvhUNo9aM95oOchGoauYMrPEhlm+cXEncrtHStciKgGG2q3RNaupzS/gm0Q=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 2626)
+
+
+Started GET "/" for ::1 at 2021-03-17 11:51:03 +0900
+Processing by MessagesController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 710)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-03-17 11:51:03 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/yoshiokayuuka/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 151)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 819)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 5ms (Views: 4.9ms | ActiveRecord: 0.0ms | Allocations: 7384)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-03-17 11:51:08 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"JC9tuMiaUzO7Zm9V3RrP/Ay46EBv3bDK1+ekm16IScIIeo88tikSrhfdxYt6hp5UwKBOuh5l/D3IDtuhw52BLQ==", "user"=>{"email"=>"a@a", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 879)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"JC9tuMiaUzO7Zm9V3RrP/Ay46EBv3bDK1+ekm16IScIIeo88tikSrhfdxYt6hp5UwKBOuh5l/D3IDtuhw52BLQ==", "user"=>{"email"=>"a@a", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/yoshiokayuuka/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 141)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 804)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms | Allocations: 6838)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-03-17 11:51:11 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"1xdhRIn5ZRC6bk2wXGMkA2qjWoC/VSolba3BEDyhjNH7QoPA90okjRbV5277/3Wrprv8es7tZtJyRL4qobREPg==", "user"=>{"email"=>"a@a", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'a@a' ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.5ms | Allocations: 5839)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"1xdhRIn5ZRC6bk2wXGMkA2qjWoC/VSolba3BEDyhjNH7QoPA90okjRbV5277/3Wrprv8es7tZtJyRL4qobREPg==", "user"=>{"email"=>"a@a", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/yoshiokayuuka/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 141)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1033)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 275ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 11314)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-03-17 11:51:15 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"IRc4y+2vos314BMeOIUbcykdft8V2PZCap5bMKQR8foNQtpPkxzjUFlbucCfGUrb5QXYJWRgurV1dyQKOQQ5FQ==", "user"=>{"email"=>"a@a", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'a@a' ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.5ms | Allocations: 2298)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"IRc4y+2vos314BMeOIUbcykdft8V2PZCap5bMKQR8foNQtpPkxzjUFlbucCfGUrb5QXYJWRgurV1dyQKOQQ5FQ==", "user"=>{"email"=>"a@a", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/yoshiokayuuka/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 141)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 804)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 273ms (Views: 5.2ms | ActiveRecord: 0.0ms | Allocations: 6878)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-03-17 11:51:29 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"2gBP068YAcIZ2zMd91B4DlXrbPMF4DdZqcgLFofQRUT2Va1X0atAX7VgmcNQzCmmmfPKCXRYe662IXQsGsWNqw==", "user"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'a@a.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 272ms (ActiveRecord: 0.4ms | Allocations: 9396)
+
+
+Started GET "/" for ::1 at 2021-03-17 11:51:29 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering messages/index.html.erb within layouts/application
+  Rendered messages/_side_bar.html.erb (Duration: 0.1ms | Allocations: 62)
+  Rendered messages/_main_chat.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered messages/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 203)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.4ms | Allocations: 7958)
+
+
+Started GET "/users/1/edit" for ::1 at 2021-03-17 11:51:33 +0900
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 0.8ms | Allocations: 720)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.5ms | Allocations: 8488)
+
+
+Started PATCH "/users/1" for ::1 at 2021-03-17 11:51:37 +0900
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"9OdLPXz/zZYx71Q4UG2iaANXP1/7t//lJJYaJ+i9gVIGSBTim6dc0Pa+TDh34harjBYREhj6IuvYqgx4eWMUoQ==", "user"=>{"name"=>"a", "email"=>"a@a.com"}, "commit"=>"Update", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `update'
+  [1m[36mUser Update (2.8ms)[0m  [1m[33mUPDATE `users` SET `users`.`name` = 'a', `users`.`updated_at` = '2021-03-17 02:51:37.277827' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/users_controller.rb:6:in `update'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `update'
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 4.4ms | Allocations: 4964)
+
+
+Started GET "/" for ::1 at 2021-03-17 11:51:37 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering messages/index.html.erb within layouts/application
+  Rendered messages/_side_bar.html.erb (Duration: 0.1ms | Allocations: 56)
+  Rendered messages/_main_chat.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered messages/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 197)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.3ms | Allocations: 7959)
+
+
+Started GET "/users/1/edit" for ::1 at 2021-03-17 11:51:38 +0900
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 0.8ms | Allocations: 719)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 0.6ms | Allocations: 8474)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2021-03-17 11:51:40 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"3pKcw7RBubtxRSGq+mBT65dMVbNuQU9Tq9GDzeMk6tcIL+WchtHzponwpKvv/A6Z7TFxRmsH3cpzmT/cTcx/Vw=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 2600)
+
+
+Started GET "/" for ::1 at 2021-03-17 11:51:40 +0900
+Processing by MessagesController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 700)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-03-17 11:51:40 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/yoshiokayuuka/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 145)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 810)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 7369)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-03-17 11:51:58 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"hgh2EhRu6/vNlkPkGea/tJTi8xw1wDzzNcM1kpGwKOXImMb0EPK6hYp6at7tY0j6a9/MLK9KAKrr+0f+mXF3zQ==", "user"=>{"email"=>"b@b", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'b@b' ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 271ms (ActiveRecord: 0.4ms | Allocations: 3165)
+
+
+Started GET "/" for ::1 at 2021-03-17 11:51:58 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering messages/index.html.erb within layouts/application
+  Rendered messages/_side_bar.html.erb (Duration: 0.1ms | Allocations: 56)
+  Rendered messages/_main_chat.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered messages/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 197)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.5ms | Allocations: 7935)
+
+
+Started GET "/users/2/edit" for ::1 at 2021-03-17 11:52:01 +0900
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 0.9ms | Allocations: 720)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 1.0ms | Allocations: 8472)
+
+
+Started PATCH "/users/2" for ::1 at 2021-03-17 11:52:05 +0900
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"8cx5+LQLwVO5UVBN5RIkNf9LpLVfWY5VF7qCt2F/UKjOCBTQecuTpmFY+6uvdZ1ErKLih3OHHtZIfoOYeBV6gw==", "user"=>{"name"=>"b", "email"=>"b@b.com"}, "commit"=>"Update", "id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `update'
+  [1m[36mUser Exists? (3.8ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'b@b.com' AND `users`.`id` != 2 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:6:in `update'
+  [1m[36mUser Update (1.5ms)[0m  [1m[33mUPDATE `users` SET `users`.`email` = 'b@b.com', `users`.`updated_at` = '2021-03-17 02:52:05.621229' WHERE `users`.`id` = 2[0m
+  ↳ app/controllers/users_controller.rb:6:in `update'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `update'
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 6.9ms | Allocations: 6197)
+
+
+Started GET "/" for ::1 at 2021-03-17 11:52:05 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering messages/index.html.erb within layouts/application
+  Rendered messages/_side_bar.html.erb (Duration: 0.1ms | Allocations: 56)
+  Rendered messages/_main_chat.html.erb (Duration: 0.0ms | Allocations: 5)
+  Rendered messages/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 197)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.4ms | Allocations: 7946)
+
+
