@@ -1318,3 +1318,160 @@ FOREIGN KEY (`user_id`)
   [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('8617640504667222525')[0m
   [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (6.6ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'example@fuga.com' LIMIT 1[0m
+  [1m[36mUser Create (5.6ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('hoge', 'example@fuga.com', '$2a$12$weBbzlxV.zVFTP6roucYg.60rI9BaB5NynEiS7ceezN3Nm056ZYxq', '2021-03-17 03:45:47.663683', '2021-03-17 03:45:47.663683')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (1, 2)[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (1, 2)[0m
+  [1m[35m (7.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (1, 2)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (1, 2)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRoom Create (4.0ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `created_at`, `updated_at`) VALUES ('ルーム１', '2021-03-17 05:23:15.021722', '2021-03-17 05:23:15.021722')[0m
+  [1m[36mRoomUser Create (6.5ms)[0m  [1m[32mINSERT INTO `room_users` (`room_id`, `user_id`, `created_at`, `updated_at`) VALUES (1, 1, '2021-03-17 05:23:15.030524', '2021-03-17 05:23:15.030524')[0m
+  [1m[36mRoomUser Create (0.3ms)[0m  [1m[32mINSERT INTO `room_users` (`room_id`, `user_id`, `created_at`, `updated_at`) VALUES (1, 2, '2021-03-17 05:23:15.037702', '2021-03-17 05:23:15.037702')[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/rooms/new" for ::1 at 2021-03-17 14:31:06 +0900
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by RoomsController#new as HTML
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/new.html.erb within layouts/application
+  Rendered rooms/new.html.erb within layouts/application (Duration: 10.3ms | Allocations: 3554)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 630ms (Views: 585.2ms | ActiveRecord: 18.6ms | Allocations: 1450631)
+
+
+Started GET "/rooms/new" for ::1 at 2021-03-17 14:34:08 +0900
+Processing by RoomsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/new.html.erb within layouts/application
+  Rendered rooms/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 5740)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.8ms | Allocations: 13767)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class='chat-room-form'>
+  <h1>新規チャットルーム</h1>
+  <%=form_with model: @room, local: true do |f|%>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :チャットルーム名, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.text_field :name, class: 'chat__room_name chat-room-form__input', placeholder: 'チャットルーム名を入力してください'%>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'>
+        <label class='chat-room-form__label' for='chat_room_チャットメンバー'>チャットメンバー</label>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <select>
+          <option value="">チャットするユーザーを選択してください</option>
+          <% User.all.each.do |user| %>
+            <option><%= user.name %></option>
+          <% end %>
+        </select>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'></div>
+      <div class='chat-room-form__field--right'>
+        <%= f.submit class: 'chat-room-form__action-btn'%>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+):
+1:    <div class='chat-room-form'>
+2:      <h1>新規チャットルーム</h1>
+3:      <%=form_with model: @room, local: true do |f|%>
+4:        <div class='chat-room-form__field'>
+5:          <div class='chat-room-form__field--left'>
+6:            <%= f.label :チャットルーム名, class: 'chat-room-form__label'%>
+7:          </div>
+8:          <div class='chat-room-form__field--right'>
+9:            <%= f.text_field :name, class: 'chat__room_name chat-room-form__input', placeholder: 'チャットルーム名を入力してください'%>
+10:          </div>
+11:        </div>
+12:        <div class='chat-room-form__field'>
+13:        </div>
+14:        <div class='chat-room-form__field'>
+15:          <div class='chat-room-form__field--left'>
+16:            <label class='chat-room-form__label' for='chat_room_チャットメンバー'>チャットメンバー</label>
+17:          </div>
+18:          <div class='chat-room-form__field--right'>
+19:            <select>
+20:              <option value="">チャットするユーザーを選択してください</option>
+21:              <% User.all.each.do |user| %>
+22:                <option><%= user.name %></option>
+23:              <% end %>
+24:            </select>
+25:          </div>
+26:        </div>
+27:        <div class='chat-room-form__field'>
+28:          <div class='chat-room-form__field--left'></div>
+29:          <div class='chat-room-form__field--right'>
+30:            <%= f.submit class: 'chat-room-form__action-btn'%>
+31:          </div>
+32:        </div>
+33:      <% end %>
+34:    </div>
+  
+app/views/rooms/new.html.erb:37: syntax error, unexpected end, expecting end-of-input
+app/views/rooms/new.html.erb:37: syntax error, unexpected end, expecting end-of-input
+app/views/rooms/new.html.erb:37: syntax error, unexpected end, expecting end-of-input
+app/views/rooms/new.html.erb:37: syntax error, unexpected end, expecting end-of-input
+app/views/rooms/new.html.erb:37: syntax error, unexpected end, expecting end-of-input
+app/views/rooms/new.html.erb:37: syntax error, unexpected end, expecting end-of-input
+Started GET "/rooms/new" for ::1 at 2021-03-17 14:34:49 +0900
+Processing by RoomsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  ↳ app/views/rooms/new.html.erb:21
+  Rendered rooms/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1652)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.1ms | ActiveRecord: 0.7ms | Allocations: 11372)
+
+
+Started GET "/rooms/new" for ::1 at 2021-03-17 14:36:49 +0900
+Processing by RoomsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/new.html.erb within layouts/application
+  [1m[36mUser Load (6.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` != 2[0m
+  ↳ app/views/rooms/new.html.erb:21
+  Rendered rooms/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 1673)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 10.7ms | ActiveRecord: 6.7ms | Allocations: 11285)
+
+
+Started GET "/rooms/new" for ::1 at 2021-03-17 14:41:40 +0900
+Processing by RoomsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/new.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` != 2[0m
+  ↳ app/views/rooms/new.html.erb:21
+  Rendered rooms/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1685)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.5ms | ActiveRecord: 0.8ms | Allocations: 11289)
+
+
+Started GET "/rooms/new" for ::1 at 2021-03-17 14:41:41 +0900
+Processing by RoomsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/new.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` != 2[0m
+  ↳ app/views/rooms/new.html.erb:21
+  Rendered rooms/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1369)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 1.0ms | Allocations: 9980)
+
+
