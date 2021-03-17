@@ -695,3 +695,69 @@ Processing by MessagesController#index as HTML
 Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 0.6ms | Allocations: 7894)
 
 
+Started GET "/users/1/edit" for ::1 at 2021-03-17 11:09:24 +0900
+  [1m[35m (0.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 6.6ms | Allocations: 3793)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 645ms (Views: 614.7ms | ActiveRecord: 12.4ms | Allocations: 1452538)
+
+
+Started GET "/users/1/edit" for ::1 at 2021-03-17 11:13:38 +0900
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 0.9ms | Allocations: 750)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 8.4ms | ActiveRecord: 11.9ms | Allocations: 15428)
+
+
+Started PATCH "/users/1" for ::1 at 2021-03-17 11:14:18 +0900
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"J4BibvsFWy8kQoX2iby1Yy/6U7CgvDEg2Rb1/qhB7NnUyFerhsku2NRqoRc29BxPovwgZ0gV4AGB4tnx3NkZsg==", "user"=>{"name"=>"a123", "email"=>"a@a.com"}, "commit"=>"Update", "id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+No template found for UsersController#update, rendering head :no_content
+Completed 204 No Content in 5ms (ActiveRecord: 0.6ms | Allocations: 4020)
+
+
+Started GET "/users/1/edit" for ::1 at 2021-03-17 11:21:31 +0900
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 1.1ms | Allocations: 749)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 9.1ms | ActiveRecord: 0.7ms | Allocations: 15425)
+
+
+Started PATCH "/users/1" for ::1 at 2021-03-17 11:21:36 +0900
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"q5J0COCnZY7J75W0BLP/T2z+InqPORps0klIVtGtCehY2kHNnWsQeTnHsVW7+1Zj4fhRrWeQy02KvWRZpTX8gw==", "user"=>{"name"=>"a123", "email"=>"a@a.com"}, "commit"=>"Update", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `update'
+  [1m[36mUser Update (14.1ms)[0m  [1m[33mUPDATE `users` SET `users`.`name` = 'a123', `users`.`updated_at` = '2021-03-17 02:21:36.669441' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/users_controller.rb:6:in `update'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `update'
+Redirected to http://localhost:3000/
+Completed 302 Found in 22ms (ActiveRecord: 17.1ms | Allocations: 5302)
+
+
+Started GET "/" for ::1 at 2021-03-17 11:21:36 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering messages/index.html.erb within layouts/application
+  Rendered messages/_side_bar.html.erb (Duration: 0.3ms | Allocations: 109)
+  Rendered messages/_main_chat.html.erb (Duration: 0.2ms | Allocations: 136)
+  Rendered messages/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 802)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.4ms | Allocations: 9172)
+
+
