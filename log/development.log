@@ -5670,3 +5670,647 @@ Processing by MessagesController#create as HTML
 Completed 200 OK in 46ms (Views: 36.5ms | ActiveRecord: 3.2ms | Allocations: 22164)
 
 
+Started GET "/" for ::1 at 2021-03-18 11:02:07 +0900
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 43.3ms | Allocations: 12554)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 44.3ms | Allocations: 12998)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 709ms (Views: 670.6ms | ActiveRecord: 19.5ms | Allocations: 1459714)
+
+
+Started GET "/rooms/1/messages" for ::1 at 2021-03-18 11:02:10 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.7ms | Allocations: 1576)
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 1[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  Rendered collection of messages/_message.html.erb [2 times] (Duration: 3.0ms | Allocations: 2326)
+  Rendered messages/_main_chat.html.erb (Duration: 27.4ms | Allocations: 7739)
+  Rendered messages/index.html.erb within layouts/application (Duration: 29.8ms | Allocations: 9724)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 33.7ms | ActiveRecord: 10.3ms | Allocations: 24878)
+
+
+Started GET "/rooms/2/messages" for ::1 at 2021-03-18 11:02:12 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.8ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.8ms | Allocations: 1571)
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 2[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  Rendered collection of messages/_message.html.erb [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered messages/_main_chat.html.erb (Duration: 1.6ms | Allocations: 1279)
+  Rendered messages/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2987)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 7.2ms | ActiveRecord: 2.0ms | Allocations: 12374)
+
+
+Started DELETE "/rooms/2" for ::1 at 2021-03-18 11:02:13 +0900
+Processing by RoomsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"QUttPI3T6sKNnE5G63ZtA0hXxHN+yvLRcTU8YY0HezkXG8WHvwWqqlm3u1x4y/ONyO3k8N7+upR1wp1WMgQ7hQ==", "id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/rooms_controller.rb:19:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Load (0.2ms)[0m  [1m[34mSELECT `room_users`.* FROM `room_users` WHERE `room_users`.`room_id` = 2[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (2.5ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 3[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 4[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 2[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoom Destroy (0.5ms)[0m  [1m[31mDELETE FROM `rooms` WHERE `rooms`.`id` = 2[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+Redirected to http://localhost:3000/
+Completed 302 Found in 15ms (ActiveRecord: 6.7ms | Allocations: 12467)
+
+
+Started GET "/" for ::1 at 2021-03-18 11:02:13 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.8ms | Allocations: 3717)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 3811)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.5ms | ActiveRecord: 0.7ms | Allocations: 18043)
+
+
+Started GET "/rooms/8/messages" for ::1 at 2021-03-18 11:02:16 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"8"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 8 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.9ms | Allocations: 1530)
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 8[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  Rendered collection of messages/_message.html.erb [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered messages/_main_chat.html.erb (Duration: 2.2ms | Allocations: 1278)
+  Rendered messages/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2945)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 8.1ms | ActiveRecord: 1.8ms | Allocations: 12323)
+
+
+Started DELETE "/rooms/8" for ::1 at 2021-03-18 11:02:18 +0900
+Processing by RoomsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"4W6NHzJBd2gBaipDNkL5Wflm7c5ae0ADFoAwyAFKbDO3PiWkAJc3ANVB31ml/2fXedzNTfpPCEYSd5H/vkksjw==", "id"=>"8"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 8 LIMIT 1[0m
+  ↳ app/controllers/rooms_controller.rb:19:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Load (0.3ms)[0m  [1m[34mSELECT `room_users`.* FROM `room_users` WHERE `room_users`.`room_id` = 8[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 15[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (1.3ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 16[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 8[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoom Destroy (0.2ms)[0m  [1m[31mDELETE FROM `rooms` WHERE `rooms`.`id` = 8[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 3.2ms | Allocations: 9031)
+
+
+Started GET "/" for ::1 at 2021-03-18 11:02:18 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.3ms | Allocations: 1492)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1566)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.6ms | Allocations: 10144)
+
+
+Started GET "/rooms/9/messages" for ::1 at 2021-03-18 11:02:20 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"9"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 2.3ms | Allocations: 1493)
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 9[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  Rendered collection of messages/_message.html.erb [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered messages/_main_chat.html.erb (Duration: 1.8ms | Allocations: 1278)
+  Rendered messages/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2907)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 7.9ms | ActiveRecord: 1.9ms | Allocations: 12269)
+
+
+Started DELETE "/rooms/9" for ::1 at 2021-03-18 11:02:21 +0900
+Processing by RoomsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"oSWUlw7cW2ZdE0Jvp4rtXXcp+sCdNFjyIIwG6IKVEqb3dTwsPAobDok4t3U0N3PT95PaQz0AELcke6ffPZZSGg==", "id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 9 LIMIT 1[0m
+  ↳ app/controllers/rooms_controller.rb:19:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Load (0.2ms)[0m  [1m[34mSELECT `room_users`.* FROM `room_users` WHERE `room_users`.`room_id` = 9[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 17[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 18[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 9[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoom Destroy (0.2ms)[0m  [1m[31mDELETE FROM `rooms` WHERE `rooms`.`id` = 9[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 2.2ms | Allocations: 9025)
+
+
+Started GET "/" for ::1 at 2021-03-18 11:02:21 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.3ms | Allocations: 1455)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1529)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.6ms | Allocations: 10124)
+
+
+Started GET "/rooms/10/messages" for ::1 at 2021-03-18 11:02:23 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 10 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.6ms | Allocations: 1456)
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 10[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  Rendered collection of messages/_message.html.erb [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered messages/_main_chat.html.erb (Duration: 1.2ms | Allocations: 1278)
+  Rendered messages/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 2870)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 6.8ms | ActiveRecord: 1.5ms | Allocations: 12224)
+
+
+Started DELETE "/rooms/10" for ::1 at 2021-03-18 11:02:24 +0900
+Processing by RoomsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"e9IlWTc3uNjSAlDYEMQaBoeVOhL3I/g9bQZr6t63Ma0tgo3iBeH4sAYppcKDeYSIBy8akVcXsHhp8crdYbRxEQ==", "id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 10 LIMIT 1[0m
+  ↳ app/controllers/rooms_controller.rb:19:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Load (0.2ms)[0m  [1m[34mSELECT `room_users`.* FROM `room_users` WHERE `room_users`.`room_id` = 10[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (6.2ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 19[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 20[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 10[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoom Destroy (0.2ms)[0m  [1m[31mDELETE FROM `rooms` WHERE `rooms`.`id` = 10[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+Redirected to http://localhost:3000/
+Completed 302 Found in 14ms (ActiveRecord: 8.3ms | Allocations: 9023)
+
+
+Started GET "/" for ::1 at 2021-03-18 11:02:24 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.2ms | Allocations: 1418)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1492)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.5ms | Allocations: 10057)
+
+
+Started GET "/rooms/7/messages" for ::1 at 2021-03-18 11:02:25 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"7"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 7 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.8ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 2.4ms | Allocations: 1419)
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 7[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  Rendered collection of messages/_message.html.erb [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered messages/_main_chat.html.erb (Duration: 1.7ms | Allocations: 1278)
+  Rendered messages/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2833)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 7.4ms | ActiveRecord: 2.2ms | Allocations: 12187)
+
+
+Started DELETE "/rooms/7" for ::1 at 2021-03-18 11:02:26 +0900
+Processing by RoomsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6FwRAz7qIZ2Mg4fQD7kKQqAMueG2ASiPSjYGjA90/zS+DLm4DDxh9ViocsqcBJTMILaZYhY1YMpOwae7sHe/iA==", "id"=>"7"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 7 LIMIT 1[0m
+  ↳ app/controllers/rooms_controller.rb:19:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Load (0.2ms)[0m  [1m[34mSELECT `room_users`.* FROM `room_users` WHERE `room_users`.`room_id` = 7[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 13[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 14[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 7[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoom Destroy (0.4ms)[0m  [1m[31mDELETE FROM `rooms` WHERE `rooms`.`id` = 7[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 2.0ms | Allocations: 9017)
+
+
+Started GET "/" for ::1 at 2021-03-18 11:02:26 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.2ms | Allocations: 1381)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1455)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.6ms | Allocations: 10038)
+
+
+Started GET "/rooms/12/messages" for ::1 at 2021-03-18 11:02:28 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"12"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.9ms | Allocations: 1382)
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 12[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  Rendered collection of messages/_message.html.erb [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered messages/_main_chat.html.erb (Duration: 11.7ms | Allocations: 1278)
+  Rendered messages/index.html.erb within layouts/application (Duration: 13.7ms | Allocations: 2796)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 17.0ms | ActiveRecord: 2.1ms | Allocations: 12152)
+
+
+Started DELETE "/rooms/12" for ::1 at 2021-03-18 11:02:30 +0900
+Processing by RoomsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"M76MIHWJFh547zvH/JngWfDTuc0QZolCFyQqE/R+bZNl7iSbR19WdqzEzt1vJH7XcGmZTrBSwQcT04skS30tLw==", "id"=>"12"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/rooms_controller.rb:19:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Load (0.2ms)[0m  [1m[34mSELECT `room_users`.* FROM `room_users` WHERE `room_users`.`room_id` = 12[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 23[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 24[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 12[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoom Destroy (0.3ms)[0m  [1m[31mDELETE FROM `rooms` WHERE `rooms`.`id` = 12[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 2.0ms | Allocations: 9041)
+
+
+Started GET "/" for ::1 at 2021-03-18 11:02:30 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.2ms | Allocations: 1344)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1418)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.6ms | Allocations: 10013)
+
+
+Started GET "/rooms/13/messages" for ::1 at 2021-03-18 11:02:31 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"13"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 13 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.8ms | Allocations: 1345)
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 13[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  Rendered collection of messages/_message.html.erb [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered messages/_main_chat.html.erb (Duration: 2.2ms | Allocations: 1278)
+  Rendered messages/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2759)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 8.1ms | ActiveRecord: 1.8ms | Allocations: 12111)
+
+
+Started DELETE "/rooms/13" for ::1 at 2021-03-18 11:02:33 +0900
+Processing by RoomsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"S+pFgDKA+4k4IhSCUBMFAOp8Y9oFM6n48v4PO+vJMhgduu07AFa74ewJ4ZjDrpuOasZDWaUH4b32Ca4MVMpypA==", "id"=>"13"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 13 LIMIT 1[0m
+  ↳ app/controllers/rooms_controller.rb:19:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Load (0.2ms)[0m  [1m[34mSELECT `room_users`.* FROM `room_users` WHERE `room_users`.`room_id` = 13[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 25[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 26[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 13[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoom Destroy (0.2ms)[0m  [1m[31mDELETE FROM `rooms` WHERE `rooms`.`id` = 13[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 2.1ms | Allocations: 9029)
+
+
+Started GET "/" for ::1 at 2021-03-18 11:02:33 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.6ms | Allocations: 1307)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1381)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 1.0ms | Allocations: 9968)
+
+
+Started GET "/rooms/11/messages" for ::1 at 2021-03-18 11:02:34 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"11"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 11 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.2ms | Allocations: 1308)
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 11[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  Rendered collection of messages/_message.html.erb [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered messages/_main_chat.html.erb (Duration: 1.1ms | Allocations: 1278)
+  Rendered messages/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 2722)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 6.6ms | ActiveRecord: 1.2ms | Allocations: 12082)
+
+
+Started DELETE "/rooms/11" for ::1 at 2021-03-18 11:02:36 +0900
+Processing by RoomsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"WfvXErnfP4CujKzQ8WDGIUgnlO2HfZCAFCmmSfCyFNkPq3+piwl/6HqnWcpi3VivyJ20bidJ2MUQ3gd+T7FUZQ==", "id"=>"11"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 11 LIMIT 1[0m
+  ↳ app/controllers/rooms_controller.rb:19:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Load (0.2ms)[0m  [1m[34mSELECT `room_users`.* FROM `room_users` WHERE `room_users`.`room_id` = 11[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 21[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 22[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 11[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoom Destroy (0.2ms)[0m  [1m[31mDELETE FROM `rooms` WHERE `rooms`.`id` = 11[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 2.4ms | Allocations: 9025)
+
+
+Started GET "/" for ::1 at 2021-03-18 11:02:36 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.4ms | Allocations: 1270)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1344)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.9ms | Allocations: 9931)
+
+
+Started GET "/rooms/6/messages" for ::1 at 2021-03-18 11:02:36 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 6 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.4ms | Allocations: 1271)
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 6[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  Rendered collection of messages/_message.html.erb [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered messages/_main_chat.html.erb (Duration: 2.6ms | Allocations: 1278)
+  Rendered messages/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2685)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 7.9ms | ActiveRecord: 1.5ms | Allocations: 12029)
+
+
+Started DELETE "/rooms/6" for ::1 at 2021-03-18 11:02:38 +0900
+Processing by RoomsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"W5v/gweO0HGZXKhdBLd+Vki4AttCsHBRtJtWFpKxjbkNy1c4NViQGU13XUeXCuDYyAIiWOKEOBSwbPchLbLNBQ==", "id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 6 LIMIT 1[0m
+  ↳ app/controllers/rooms_controller.rb:19:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Load (0.2ms)[0m  [1m[34mSELECT `room_users`.* FROM `room_users` WHERE `room_users`.`room_id` = 6[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 11[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 12[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 6[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoom Destroy (0.2ms)[0m  [1m[31mDELETE FROM `rooms` WHERE `rooms`.`id` = 6[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 1.9ms | Allocations: 9029)
+
+
+Started GET "/" for ::1 at 2021-03-18 11:02:38 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (1.1ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.9ms | Allocations: 1233)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1307)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 1.4ms | Allocations: 9898)
+
+
+Started GET "/rooms/5/messages" for ::1 at 2021-03-18 11:02:39 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 5 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.7ms | Allocations: 1234)
+  [1m[36mMessage Load (1.3ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 5[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  Rendered collection of messages/_message.html.erb [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered messages/_main_chat.html.erb (Duration: 3.0ms | Allocations: 1278)
+  Rendered messages/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2648)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 7.7ms | ActiveRecord: 2.7ms | Allocations: 12004)
+
+
+Started DELETE "/rooms/5" for ::1 at 2021-03-18 11:02:39 +0900
+Processing by RoomsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IDbGyFiicCCsZ4y/Vk8uXu4vIqDhMRX5YR1qcRfO8AB2Zm5zanQwSHhMeaXF8rDQbpUCI0EFXbxl6stGqM2wvA==", "id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 5 LIMIT 1[0m
+  ↳ app/controllers/rooms_controller.rb:19:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Load (0.2ms)[0m  [1m[34mSELECT `room_users`.* FROM `room_users` WHERE `room_users`.`room_id` = 5[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 9[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 10[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 5[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoom Destroy (0.2ms)[0m  [1m[31mDELETE FROM `rooms` WHERE `rooms`.`id` = 5[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 2.8ms | Allocations: 9938)
+
+
+Started GET "/" for ::1 at 2021-03-18 11:02:39 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.1ms | Allocations: 1195)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1269)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.7ms | Allocations: 9877)
+
+
+Started GET "/rooms/4/messages" for ::1 at 2021-03-18 11:02:42 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 4 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 1.6ms | Allocations: 1196)
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 4[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  Rendered collection of messages/_message.html.erb [1 times] (Duration: 0.1ms | Allocations: 50)
+  Rendered messages/_main_chat.html.erb (Duration: 2.6ms | Allocations: 2462)
+  Rendered messages/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 3794)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 7.7ms | ActiveRecord: 1.8ms | Allocations: 13134)
+
+
+Started DELETE "/rooms/4" for ::1 at 2021-03-18 11:02:43 +0900
+Processing by RoomsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"RZUaZaDojzMcm/a0ecsk3Qtb5lq04HGDYFPEvPvkkH0TxbLekj7PW8iwA67qdrpTi+HG2RTUOcZkpGWLROfQwQ==", "id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 4 LIMIT 1[0m
+  ↳ app/controllers/rooms_controller.rb:19:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Load (0.2ms)[0m  [1m[34mSELECT `room_users`.* FROM `room_users` WHERE `room_users`.`room_id` = 4[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 7[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoomUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM `room_users` WHERE `room_users`.`id` = 8[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 4[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mMessage Destroy (0.1ms)[0m  [1m[31mDELETE FROM `messages` WHERE `messages`.`id` = 1[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[36mRoom Destroy (0.1ms)[0m  [1m[31mDELETE FROM `rooms` WHERE `rooms`.`id` = 4[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:20:in `destroy'
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 1.6ms | Allocations: 10064)
+
+
+Started GET "/" for ::1 at 2021-03-18 11:02:43 +0900
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (3.8ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 4.7ms | Allocations: 1158)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1232)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 5.3ms | ActiveRecord: 4.0ms | Allocations: 9807)
+
+
