@@ -5247,3 +5247,145 @@ Processing by MessagesController#index as HTML
 Completed 200 OK in 13ms (Views: 8.9ms | ActiveRecord: 1.5ms | Allocations: 13630)
 
 
+Started GET "/rooms/2/messages" for ::1 at 2021-03-18 10:37:09 +0900
+  [1m[35m (1.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"2"}
+  [1m[36mUser Load (23.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (11.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 13.3ms | Allocations: 1571)
+  [1m[36mMessage Load (6.5ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 2[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  Rendered collection of messages/_message.html.erb [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered messages/_main_chat.html.erb (Duration: 8.1ms | Allocations: 1237)
+  Rendered messages/index.html.erb within layouts/application (Duration: 21.6ms | Allocations: 2944)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 67ms (Views: 20.0ms | ActiveRecord: 42.3ms | Allocations: 12302)
+
+
+Started GET "/rooms/3/messages" for ::1 at 2021-03-18 10:37:11 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"3"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 3 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (5.6ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 7.0ms | Allocations: 1567)
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 3[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  Rendered collection of messages/_message.html.erb [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered messages/_main_chat.html.erb (Duration: 2.2ms | Allocations: 1237)
+  Rendered messages/index.html.erb within layouts/application (Duration: 9.4ms | Allocations: 2940)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 8.1ms | ActiveRecord: 7.4ms | Allocations: 12292)
+
+
+Started GET "/rooms/1/messages" for ::1 at 2021-03-18 10:37:11 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"1"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.8ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 2.2ms | Allocations: 1567)
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 1[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  Rendered collection of messages/_message.html.erb [1 times] (Duration: 1.1ms | Allocations: 24)
+  Rendered messages/_main_chat.html.erb (Duration: 5.2ms | Allocations: 2393)
+  Rendered messages/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 4096)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 13.4ms | ActiveRecord: 4.0ms | Allocations: 13450)
+
+
+Started GET "/rooms/1/messages" for ::1 at 2021-03-18 10:38:31 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 2.3ms | Allocations: 1759)
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 1[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  Rendered collection of messages/_message.html.erb [1 times] (Duration: 1.0ms | Allocations: 168)
+  Rendered messages/_main_chat.html.erb (Duration: 6.2ms | Allocations: 2909)
+  Rendered messages/index.html.erb within layouts/application (Duration: 10.1ms | Allocations: 5206)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 18.6ms | ActiveRecord: 1.7ms | Allocations: 15578)
+
+
+Started GET "/rooms/2/messages" for ::1 at 2021-03-18 10:38:33 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.7ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 2.0ms | Allocations: 1575)
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 2[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  Rendered collection of messages/_message.html.erb [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered messages/_main_chat.html.erb (Duration: 1.8ms | Allocations: 1242)
+  Rendered messages/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 2953)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.3ms | ActiveRecord: 1.8ms | Allocations: 12296)
+
+
+Started GET "/rooms/4/messages" for ::1 at 2021-03-18 10:38:36 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"4"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 4 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.9ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 2.4ms | Allocations: 1567)
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 4[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  Rendered collection of messages/_message.html.erb [1 times] (Duration: 0.2ms | Allocations: 24)
+  Rendered messages/_main_chat.html.erb (Duration: 3.5ms | Allocations: 2396)
+  Rendered messages/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 4099)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 31.1ms | ActiveRecord: 3.1ms | Allocations: 13455)
+
+
+Started GET "/rooms/1/messages" for ::1 at 2021-03-18 10:38:37 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"room_id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRoom Load (3.2ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/messages_controller.rb:4:in `index'
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mRoom Load (1.0ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` INNER JOIN `room_users` ON `rooms`.`id` = `room_users`.`room_id` WHERE `room_users`.`user_id` = 2[0m
+  ↳ app/views/messages/_side_bar.html.erb:10
+  Rendered messages/_side_bar.html.erb (Duration: 2.4ms | Allocations: 1567)
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`room_id` = 1[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2[0m
+  ↳ app/views/messages/_main_chat.html.erb:14
+  Rendered collection of messages/_message.html.erb [1 times] (Duration: 0.1ms | Allocations: 24)
+  Rendered messages/_main_chat.html.erb (Duration: 2.9ms | Allocations: 2397)
+  Rendered messages/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 4100)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 8.4ms | ActiveRecord: 6.4ms | Allocations: 13438)
+
+
